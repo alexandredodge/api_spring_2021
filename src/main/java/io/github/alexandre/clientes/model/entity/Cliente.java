@@ -9,10 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
 
 	@Id
@@ -25,6 +31,7 @@ public class Cliente {
 	@Column(nullable = false, length = 11)
 	private String cpf;
 	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
 	
